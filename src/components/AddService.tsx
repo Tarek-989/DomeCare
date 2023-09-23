@@ -82,7 +82,7 @@ export const AddService: React.FC = () => {
 							<>
 								<Box key={Service.id} display={'flex'} gap={1} paddingY={1} alignItems={'center'} >
 									{Service.children?.length ? <IconButton onClick={() => setHavechildren(!havechildren)}>
-										<img src='/services assets\small-down.svg' alt='arrow down' width={15} />
+										<img src='/services assets/small-down.svg' alt='arrow down' width={15} />
 									</IconButton> : <Box width={30}></Box>}
 									<Typography>{Service.name}</Typography>
 								</Box>
@@ -90,7 +90,7 @@ export const AddService: React.FC = () => {
 									<>
 										<Box key={item.id} display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#f5f9ff'}>
 											{item.children?.length ? <IconButton onClick={() => setHavechildren2(!havechildren2)}>
-												<img src='/services assets\small-down.svg' alt='arrow down' width={15} />
+												<img src='/services assets/small-down.svg' alt='arrow down' width={15} />
 											</IconButton> : <Box width={30}></Box>}
 											<Typography>{item.name}</Typography>
 										</Box>

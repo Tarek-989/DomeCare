@@ -50,7 +50,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 					flexDirection: 'column',
 					alignItems: 'center',
 				}}>
-					<img src='/login assets\Logo.png' alt='Logo' width={'49%'} style={{ marginTop: '5rem' }} />
+					<img src='/login assets/Logo.png' alt='Logo' width={'49%'} style={{ marginTop: '5rem' }} />
 					<Typography variant='h6' fontSize={17} mt={1}>Welcome back! Please login to your account.</Typography>
 					<form
 						onSubmit={handleSubmit(onSubmit)}

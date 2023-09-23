@@ -5,6 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { Box, Breadcrumbs, Typography, Divider, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 export const MiddleSection: React.FC = () => {
 	const [havechildren, setHavechildren] = useState(false);
@@ -40,29 +41,29 @@ export const MiddleSection: React.FC = () => {
 
 	return (
 		<Box display={'flex'} flexDirection={'column'} flex={3} height={'80%'} >
-			<Breadcrumbs separator='>>' aria-label='breadcrumb'>
-				<Typography variant='h2' fontSize={18} color={'#3b86ff'}>
+			<Breadcrumbs separator={<KeyboardDoubleArrowRightIcon sx={{ fontSize: "12px" }} />} aria-label='breadcrumb' color="black">
+				<Typography variant='h2' fontSize={13} sx={{ display: "flex", alignItems: "center" }} color={'#3b86ff'}>
 					<HomeIcon sx={{ mr: 1 }} fontSize={'small'} />
 					Home
 				</Typography>
-				<Typography variant='h2' fontSize={18}>Profile</Typography>
-				<Typography variant='h2' fontSize={18}>Services</Typography>
+				<Typography variant='h2' color="black" fontSize={13}>Profile</Typography>
+				<Typography variant='h2' color="black" fontSize={13}>Services</Typography>
 			</Breadcrumbs>
 			<Box display={'flex'} justifyContent={'center'} mt={2} alignItems={'center'} gap={2}>
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} bgcolor={'#e7e9ef'} width={60} height={50} borderRadius={3}>
-					<img src='/services assets\ic_user.svg' alt='user' />
+					<img src='/services assets/ic_user.svg' alt='user' />
 				</Box>
 				<Divider orientation='vertical' flexItem sx={{ height: 25, marginTop: 1.5 }} />
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} bgcolor={'#e7e9ef'} width={60} height={50} borderRadius={3}>
-					<img src='/services assets\Mask Group 123.svg' alt='user' />
+					<img src='/services assets/Mask Group 123.svg' alt='user' />
 				</Box>
 				<Divider orientation='vertical' flexItem sx={{ height: 25, marginTop: 1.5 }} />
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} bgcolor={'#fff'} width={60} height={50} borderRadius={3}>
-					<img src='/services assets\Group 8678.svg' alt='Group' width={80} />
+					<img src='/services assets/Group 8678.svg' alt='Group' width={80} />
 				</Box>
 				<Divider orientation='vertical' flexItem sx={{ height: 25, marginTop: 1.5 }} />
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} bgcolor={'#e7e9ef'} width={60} height={50} borderRadius={3}>
-					<img src='/services assets\ic_my_order.svg' alt='my order' />
+					<img src='/services assets/ic_my_order.svg' alt='my order' />
 				</Box>
 			</Box>
 			<Box mt={2} borderRadius={3} bgcolor={'#fff'} padding={3}>
@@ -73,7 +74,7 @@ export const MiddleSection: React.FC = () => {
 				<Box display={'flex'} justifyContent={'flex-end'} mt={2}>
 					<Box bgcolor={'#ebf3ff'} sx={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>
 						<IconButton onClick={handleAddButtonClick}>
-							<img src='/services assets\1827996.svg' alt='link' />
+							<img src='/services assets/1827996.svg' alt='link' />
 						</IconButton>
 					</Box>
 				</Box>
@@ -85,13 +86,13 @@ export const MiddleSection: React.FC = () => {
 					<>
 						<Box key={Service.id} display={'flex'} gap={1} paddingY={1} alignItems={'center'} >
 							{Service.children?.length ? <IconButton onClick={() => setHavechildren(!havechildren)}>
-								<img src='/services assets\small-down.svg' alt='arrow down' width={15} />
+								<img src='/services assets/small-down.svg' alt='arrow down' width={15} />
 							</IconButton> : <Box width={30}></Box>}
 							<Box display={'flex'} width={'100%'} justifyContent={'space-between'} alignItems={'center'}>
 								<Typography>{Service.name}</Typography>
 								<Box mr={3}>
-									<IconButton onClick={() => handleDelete(Service.id)}><img src='/services assets\Mask Group 35.svg' alt='delete' /></IconButton>
-									<IconButton><img src='/services assets\ic_edite.svg' alt='edit' /></IconButton>
+									<IconButton onClick={() => handleDelete(Service.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
+									<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 								</Box>
 							</Box>
 						</Box>
@@ -99,13 +100,13 @@ export const MiddleSection: React.FC = () => {
 							<>
 								<Box key={item.id} display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#f5f9ff'}>
 									{item.children?.length ? <IconButton onClick={() => setHavechildren2(!havechildren2)}>
-										<img src='/services assets\small-down.svg' alt='arrow down' width={15} />
+										<img src='/services assets/small-down.svg' alt='arrow down' width={15} />
 									</IconButton> : <Box width={30}></Box>}
 									<Box display={'flex'} width={'100%'} justifyContent={'space-between'} alignItems={'center'}>
 										<Typography>{item.name}</Typography>
 										<Box mr={3}>
-											<IconButton onClick={() => handleDelete(item.id)}><img src='/services assets\Mask Group 35.svg' alt='delete' /></IconButton>
-											<IconButton><img src='/services assets\ic_edite.svg' alt='edit' /></IconButton>
+											<IconButton onClick={() => handleDelete(item.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
+											<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 										</Box>
 									</Box>
 								</Box>
@@ -115,8 +116,8 @@ export const MiddleSection: React.FC = () => {
 										<Box display={'flex'} width={'100%'} justifyContent={'space-between'} alignItems={'center'}>
 											<Typography>{val.name}</Typography>
 											<Box mr={3}>
-												<IconButton onClick={() => handleDelete(val.id)}><img src='/services assets\Mask Group 35.svg' alt='delete' /></IconButton>
-												<IconButton><img src='/services assets\ic_edite.svg' alt='edit' /></IconButton>
+												<IconButton onClick={() => handleDelete(val.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
+												<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 											</Box>
 										</Box>
 									</Box>
@@ -138,10 +139,10 @@ export const MiddleSection: React.FC = () => {
 					</Box>
 				</Box>
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} mt={1}>
-					<img src='/services assets\Group 6896.svg' alt='Product' />
-					<img src='/services assets\Group 6896.svg' alt='Product' />
-					<img src='/services assets\Group 6896.svg' alt='Product' />
-					<img src='/services assets\Group 6896.svg' alt='Product' />
+					<img src='/services assets/Group 6896.svg' alt='Product' />
+					<img src='/services assets/Group 6896.svg' alt='Product' />
+					<img src='/services assets/Group 6896.svg' alt='Product' />
+					<img src='/services assets/Group 6896.svg' alt='Product' />
 				</Box>
 			</Box>
 		</Box >
