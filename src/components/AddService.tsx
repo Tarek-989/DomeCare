@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export const AddService: React.FC = () => {
 	const [havechildren, setHavechildren] = useState(false);
 	const [havechildren2, setHavechildren2] = useState(false);
-	const [Services, setServices] = useState(initServices);
+	const [Services,] = useState(initServices);
 	const navigate = useNavigate();
 
 	const handleBackButtonClick = () => {
