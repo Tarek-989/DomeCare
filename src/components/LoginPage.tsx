@@ -45,12 +45,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 				padding: '0 50px',
 			}}>
 				<Box sx={{
-					width: '65%',  // reduce the content width by 30%
+					width: '65%',
 					display: 'flex',
 					flexDirection: 'column',
-					alignItems: 'center', // center content horizontally
+					alignItems: 'center',
 				}}>
-					<img src='login assets\Logo.png' alt='Logo' width={'45%'} style={{ marginTop: '5rem' }} />
+					<img src='/login assets\Logo.png' alt='Logo' width={'45%'} style={{ marginTop: '5rem' }} />
 					<Typography variant='h6' fontSize={15} mt={1}>Welcome back! Please login to your account.</Typography>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
