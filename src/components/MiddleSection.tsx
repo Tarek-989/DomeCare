@@ -4,6 +4,7 @@ import { initServices } from '../data/services';
 import HomeIcon from '@mui/icons-material/Home';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { Box, Breadcrumbs, Typography, Divider, IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const MiddleSection: React.FC = () => {
 	const [havechildren, setHavechildren] = useState(false);
@@ -29,6 +30,12 @@ export const MiddleSection: React.FC = () => {
 	const handleDelete = (id: string) => {
 		const newServices = removeService(Services, id);
 		setServices(newServices);
+	};
+
+	const navigate = useNavigate();
+
+	const handleAddButtonClick = () => {
+		navigate('/services/add');
 	};
 
 	return (
@@ -65,7 +72,7 @@ export const MiddleSection: React.FC = () => {
 				</Typography>
 				<Box display={'flex'} justifyContent={'flex-end'} mt={2}>
 					<Box bgcolor={'#ebf3ff'} sx={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>
-						<IconButton>
+						<IconButton onClick={handleAddButtonClick}>
 							<img src='services assets\1827996.svg' alt='link' />
 						</IconButton>
 					</Box>
@@ -90,7 +97,7 @@ export const MiddleSection: React.FC = () => {
 						</Box>
 						{havechildren ? Service.children?.map((item) => (
 							<>
-								<Box display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#f5f9ff'}>
+								<Box key={item.id} display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#f5f9ff'}>
 									{item.children?.length ? <IconButton onClick={() => setHavechildren2(!havechildren2)}>
 										<img src='services assets\small-down.svg' alt='arrow down' width={15} />
 									</IconButton> : <Box width={30}></Box>}
@@ -103,7 +110,7 @@ export const MiddleSection: React.FC = () => {
 									</Box>
 								</Box>
 								{havechildren2 ? item.children?.map((val) => (
-									<Box display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#ebf3ff'}>
+									<Box key={val.id} display={'flex'} gap={1} paddingY={1} ml={1} alignItems={'center'} bgcolor={'#ebf3ff'}>
 										<Box width={30}></Box>
 										<Box display={'flex'} width={'100%'} justifyContent={'space-between'} alignItems={'center'}>
 											<Typography>{val.name}</Typography>
