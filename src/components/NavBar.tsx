@@ -10,7 +10,7 @@ export const NavBar: React.FC = () => (
 		</Box>
 		<Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} mt={2}>
 			<List>
-				<ListItemButton sx={{ bgcolor: '#f5f6fa', borderTopLeftRadius: 25, borderBottomLeftRadius: 25, marginBottom: 2 }}>
+				<ListItemButton sx={{ bgcolor: '#f5f6fa', borderRadius: 25, marginBottom: 2 }}>
 					<img src='services assets\Mask Group 91.svg' alt='home' />
 					<Typography ml={2}>Home</Typography>
 				</ListItemButton>
