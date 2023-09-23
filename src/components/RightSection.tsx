@@ -3,7 +3,7 @@ import React from 'react'
 
 export const RightSection: React.FC = () => (
 	<Box bgcolor={'#fff'} flex={1.5} height={'90%'} borderRadius={4} display={'flex'} flexDirection={'column'}>
-		<img src='services assets\user photo.png' alt='user photo' style={{ width: '100%', borderRadius: 15 }} />
+		<img src='services assets\user photo.png' alt='user photo' style={{ width: '100%', maxHeight: 300, borderRadius: 15 }} />
 		<Box mt={3} padding={2}>
 			<Typography variant='h5'>
 				Lorem ipsum
@@ -47,7 +47,7 @@ export const RightSection: React.FC = () => (
 					Lorem Ipsum dolor sit
 				</Typography>
 			</Box>
-			<Box display={'flex'} gap={2} alignItems={'center'} mb={7}>
+			<Box display={'flex'} gap={2} alignItems={'center'} mb={5}>
 				<img src='services assets\ic_linkedin.svg' alt='ic linkedin' width={20} />
 				<Typography variant='body2'>
 					Lorem Ipsum dolor sit

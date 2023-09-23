@@ -8,7 +8,7 @@ export const NavBar: React.FC = () => (
 			<Typography variant='h5'>User Name</Typography>
 			<img src='services assets\chart.svg' alt='persentage' />
 		</Box>
-		<Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} mt={2}>
+		<Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'} mt={2} mb={5}>
 			<List>
 				<ListItemButton sx={{ bgcolor: '#f5f6fa', borderRadius: 25, marginBottom: 2 }}>
 					<img src='services assets\Mask Group 91.svg' alt='home' />
