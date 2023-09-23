@@ -50,12 +50,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 					flexDirection: 'column',
 					alignItems: 'center',
 				}}>
-					<img src='/login assets\Logo.png' alt='Logo' width={'45%'} style={{ marginTop: '5rem' }} />
-					<Typography variant='h6' fontSize={15} mt={1}>Welcome back! Please login to your account.</Typography>
+					<img src='/login assets\Logo.png' alt='Logo' width={'49%'} style={{ marginTop: '5rem' }} />
+					<Typography variant='h6' fontSize={17} mt={1}>Welcome back! Please login to your account.</Typography>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						style={{
 							marginTop: 30,
+							width: "80%"
 						}}
 					>
 						<TextField
@@ -66,7 +67,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 							margin='normal'
 							required
 							fullWidth
-							label='Username'
 							placeholder='User Name or Number Phone'
 							style={{
 								borderRadius: 10,
@@ -94,7 +94,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 							margin='normal'
 							required
 							fullWidth
-							label='Password'
+							placeholder='Password'
 							type='password'
 							style={{
 								borderRadius: 10,
@@ -120,16 +120,17 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 							}}
 						/>
 
-						<Box display='flex' justifyContent='space-between' width='100%' mt={2}>
+						<Box display='flex' justifyContent='space-between' alignItems="center" width='100%' mt={2}>
 							<FormControlLabel
-								control={<Checkbox value='remember' color='primary' />}
+								control={<Checkbox value='remember' />}
 								label='Remember me'
+								sx={{ "& .MuiButtonBase-root": { color: "rgba(0, 0, 0, 0.23)" }, "& .MuiTypography-root": { color: "#504e4e", fontSize: "13px" } }}
 							/>
 							<Typography
 								variant='body2'
-								color='primary'
+								sx={{ color: "#504e4e", fontSize: "12px" }}
 							>
-								Forgot Password?
+								Forgot Password
 							</Typography>
 						</Box>
 
@@ -166,8 +167,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 						</Box>
 					</form>
 
-					<Typography fontSize={10} variant='body2' align='center' style={{ marginTop: '6rem' }}>
-						By signing up you agree to our Privacy Policy and Terms.
+					<Typography fontSize={10} variant='body2' align='center' style={{ marginTop: '6rem', display: "flex" }}>
+						By signing up you agree to our <Typography fontSize={10} variant='body2' sx={{ textDecoration: "underline" }}>&nbsp;Privacy Policy and Terms.</Typography>
 					</Typography>
 				</Box>
 			</Box >
