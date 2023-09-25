@@ -16,3 +16,6 @@ export interface ServiceViewProps {
 	service: Service;
 	onToggle: (id: string) => void
 }
+export interface HeaderProps {
+	toggleDrawer: () => void;
+}

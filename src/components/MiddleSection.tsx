@@ -3,7 +3,7 @@ import { Service } from '../types';
 import { initServices } from '../data/services';
 import HomeIcon from '@mui/icons-material/Home';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import { Box, Breadcrumbs, Typography, Divider, IconButton } from '@mui/material';
+import { Box, Breadcrumbs, Typography, Divider, IconButton, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
@@ -138,12 +138,28 @@ export const MiddleSection: React.FC = () => {
 						<KeyboardArrowRight sx={{ color: '#3b86ff' }} />
 					</Box>
 				</Box>
-				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} mt={1}>
-					<img src='/services assets/Group 6896.svg' alt='Product' />
-					<img src='/services assets/Group 6896.svg' alt='Product' />
-					<img src='/services assets/Group 6896.svg' alt='Product' />
-					<img src='/services assets/Group 6896.svg' alt='Product' />
-				</Box>
+				<Grid container spacing={2} justifyContent="center" mt={1}>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
+						</Box>
+					</Grid>
+					<Grid item xs={12} sm={6} md={3}>
+						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
+						</Box>
+					</Grid>
+				</Grid>
 			</Box>
 		</Box >
 	)

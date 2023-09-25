@@ -2,9 +2,11 @@ import React from 'react'
 import { Typography, List, Box, ListItemButton } from '@mui/material';
 
 export const NavBar: React.FC = () => (
-	<Box bgcolor={'#fff'} flex={1.5} height={'90%'} borderRadius={4}>
+	<Box bgcolor={'#fff'} flex={1.5} height={'90%'} borderRadius={4} p={{ xs: 2, md: 0 }}>
 		<Box display={'flex'} justifyContent={'space-evenly'} alignItems={'center'} mt={2}>
-			<img src='/services assets/user photo.png' alt='user photo' width={40} height={40} style={{ borderRadius: '50%' }} />
+			<Box width={{ xs: 50, md: 40 }} height={{ xs: 50, md: 40 }}>
+				<img src='/services assets/user photo.png' alt='user photo' width={'100%'} height={'100%'} style={{ borderRadius: '50%' }} />
+			</Box>
 			<Typography variant='h5'>User Name</Typography>
 			<img src='/services assets/chart.svg' alt='persentage' />
 		</Box>
