@@ -171,11 +171,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 							</Button>
 						</Box>
 					</form>
-
-					<Typography fontSize={10} variant='body2' align='center' style={{ marginTop: '6rem', display: 'flex' }}>
+				</Box>
+					<Typography fontSize={10} variant='body2' align='center' sx={{ paddingBottom: { xs: '1rem', md: '0.5rem'	 }}} style={{ marginTop: '6rem', display: 'flex' }}>
 						By signing up you agree to our <Typography fontSize={10} variant='body2' sx={{ textDecoration: 'underline' }}>&nbsp;Privacy Policy and Terms.</Typography>
 					</Typography>
-				</Box>
 			</Box >
 		</Box >
 	);
