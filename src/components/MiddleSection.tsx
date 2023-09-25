@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { Service, ServicesProps } from '../types';
 import HomeIcon from '@mui/icons-material/Home';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import { Box, Breadcrumbs, Typography, Divider, IconButton, Grid } from '@mui/material';
+import { Box, Breadcrumbs, Typography, Divider, IconButton, Grid, Dialog, DialogContent, TextField, Button, DialogActions, DialogTitle } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
-export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices }) => {
+export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }) => {
 	const [havechildren, setHavechildren] = useState(false);
 	const [havechildren2, setHavechildren2] = useState(false);
+	const [openDialog, setOpenDialog] = useState(false);
+	const [serviceToEdit, setServiceToEdit] = useState<Service | null>(null);
 
 	const removeService = (services: Array<Service>, id: string): Array<Service> => {
 		return services.reduce((acc, service) => {
@@ -29,6 +31,19 @@ export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices 
 	const handleDelete = (id: string) => {
 		const newServices = removeService(Services, id);
 		setServices(newServices);
+	};
+
+	const handleEditSubmit = (updatedService: Service) => {
+		const updatedServices = Services.map(service =>
+			service.id === updatedService.id ? updatedService : service
+		);
+		setServices(updatedServices);
+		setOpenDialog(false);
+	};
+
+	const handleEditClick = (service: Service) => {
+		setServiceToEdit(service);
+		setOpenDialog(true);
 	};
 
 	const navigate = useNavigate();
@@ -90,7 +105,7 @@ export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices 
 								<Typography>{Service.name}</Typography>
 								<Box mr={3}>
 									<IconButton onClick={() => handleDelete(Service.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
-									<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
+									<IconButton onClick={() => handleEditClick(Service)}><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 								</Box>
 							</Box>
 						</Box>
@@ -104,7 +119,7 @@ export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices 
 										<Typography>{item.name}</Typography>
 										<Box mr={3}>
 											<IconButton onClick={() => handleDelete(item.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
-											<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
+											<IconButton onClick={() => handleEditClick(item)}><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 										</Box>
 									</Box>
 								</Box>
@@ -115,7 +130,7 @@ export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices 
 											<Typography>{val.name}</Typography>
 											<Box mr={3}>
 												<IconButton onClick={() => handleDelete(val.id)}><img src='/services assets/Mask Group 35.svg' alt='delete' /></IconButton>
-												<IconButton><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
+												<IconButton onClick={() => handleEditClick(val)}><img src='/services assets/ic_edite.svg' alt='edit' /></IconButton>
 											</Box>
 										</Box>
 									</Box>
@@ -159,6 +174,38 @@ export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices 
 					</Grid>
 				</Grid>
 			</Box>
+			<Dialog
+				open={openDialog}
+				onClose={() => setOpenDialog(false)}
+			>
+				<DialogTitle>Edit Service</DialogTitle>
+				<DialogContent>
+					<TextField
+						autoFocus
+						margin="dense"
+						id="name"
+						label="Service Name"
+						type="text"
+						fullWidth
+						defaultValue={serviceToEdit?.name}
+						onChange={e => setServiceToEdit({ ...serviceToEdit!, name: e.target.value })}
+					/>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={() => setOpenDialog(false)} color="primary">
+						Cancel
+					</Button>
+					<Button
+						onClick={() => {
+							if (serviceToEdit) {
+								handleEditSubmit(serviceToEdit);
+							}
+						}}
+						color="primary">
+						Submit
+					</Button>
+				</DialogActions>
+			</Dialog>
 		</Box >
 	)
 }
