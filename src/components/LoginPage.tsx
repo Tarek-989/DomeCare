@@ -12,6 +12,7 @@ import {
 	InputAdornment,
 	TextField,
 	Typography,
+	Hidden
 } from '@mui/material';
 
 const schema = yup.object().shape({
@@ -30,12 +31,14 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 			height: '100vh',
 			backgroundColor: '#f9fcff',
 		}}>
-			<Box sx={{
-				flex: '1',
-				backgroundImage: 'url(/login%20assets/img-web1.png)',
-				backgroundSize: 'cover',
-				backgroundPosition: 'center',
-			}} />
+			<Hidden smDown>
+				<Box sx={{
+					flex: '1',
+					backgroundImage: 'url(/login%20assets/img-web1.png)',
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+				}} />
+			</Hidden>
 			<Box sx={{
 				flex: '1',
 				display: 'flex',
@@ -45,18 +48,20 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 				padding: '0 50px',
 			}}>
 				<Box sx={{
-					width: '65%',
+					width: { xs: '85%', md: '70%' },
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: 'center',
 				}}>
-					<img src='/login assets/Logo.png' alt='Logo' width={'49%'} style={{ marginTop: '5rem' }} />
+					<Box sx={{ width: { xs: '70%', md: '49%' }, marginTop: '5rem' }}>
+						<img src='/login assets/Logo.png' alt='Logo' width='100%' />
+					</Box>
 					<Typography variant='h6' fontSize={17} mt={1}>Welcome back! Please login to your account.</Typography>
 					<form
 						onSubmit={handleSubmit(onSubmit)}
 						style={{
 							marginTop: 30,
-							width: "80%"
+							width: '100%'
 						}}
 					>
 						<TextField
@@ -120,21 +125,21 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 							}}
 						/>
 
-						<Box display='flex' justifyContent='space-between' alignItems="center" width='100%' mt={2}>
+						<Box display='flex' justifyContent='space-between' alignItems='center' width='100%' mt={2}>
 							<FormControlLabel
 								control={<Checkbox value='remember' />}
 								label='Remember me'
-								sx={{ "& .MuiButtonBase-root": { color: "rgba(0, 0, 0, 0.23)" }, "& .MuiTypography-root": { color: "#504e4e", fontSize: "13px" } }}
+								sx={{ '& .MuiButtonBase-root': { color: 'rgba(0, 0, 0, 0.23)' }, '& .MuiTypography-root': { color: '#504e4e', fontSize: '13px' } }}
 							/>
 							<Typography
 								variant='body2'
-								sx={{ color: "#504e4e", fontSize: "12px" }}
+								sx={{ color: '#504e4e', fontSize: '12px' }}
 							>
 								Forgot Password
 							</Typography>
 						</Box>
 
-						<Box display='flex' justifyContent='space-evenly' width='100%' mt={3} gap={3}>
+						<Box display='flex' justifyContent='space-evenly' width='100%' mt={3} gap={3} flexDirection={{ xs: 'column-reverse', sm: 'row' }}>
 							<Button
 								variant='outlined'
 								color='primary'
@@ -167,8 +172,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 						</Box>
 					</form>
 
-					<Typography fontSize={10} variant='body2' align='center' style={{ marginTop: '6rem', display: "flex" }}>
-						By signing up you agree to our <Typography fontSize={10} variant='body2' sx={{ textDecoration: "underline" }}>&nbsp;Privacy Policy and Terms.</Typography>
+					<Typography fontSize={10} variant='body2' align='center' style={{ marginTop: '6rem', display: 'flex' }}>
+						By signing up you agree to our <Typography fontSize={10} variant='body2' sx={{ textDecoration: 'underline' }}>&nbsp;Privacy Policy and Terms.</Typography>
 					</Typography>
 				</Box>
 			</Box >
