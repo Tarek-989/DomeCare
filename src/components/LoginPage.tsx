@@ -51,6 +51,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
 					width: { xs: '85%', md: '70%' },
 					display: 'flex',
 					flexDirection: 'column',
+					justifyContent: 'center',
 					alignItems: 'center',
 				}}>
 					<Box sx={{ width: { xs: '70%', md: '49%' }, marginTop: '5rem' }}>
