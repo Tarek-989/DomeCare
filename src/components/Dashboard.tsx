@@ -4,8 +4,9 @@ import { NavBar } from './NavBar';
 import { Header } from './Header';
 import { RightSection } from './RightSection';
 import { MiddleSection } from './MiddleSection';
+import { ServicesProps } from '../types';
 
-export const Dashboard: React.FC = () => {
+export const Dashboard: React.FC<ServicesProps> = ({ Services, setServices }) => {
 	const [drawerOpen, setDrawerOpen] = useState(false)
 	const toggleDrawer = () => setDrawerOpen(!drawerOpen)
 
@@ -16,7 +17,7 @@ export const Dashboard: React.FC = () => {
 				anchor="left"
 				open={drawerOpen}
 				onClose={toggleDrawer}
-				sx={{ display: { xs: 'block', md: 'none' } }}  // Only show on mobile
+				sx={{ display: { xs: 'block', md: 'none' } }}
 			>
 				<NavBar />
 			</Drawer>
@@ -24,7 +25,7 @@ export const Dashboard: React.FC = () => {
 				<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 					<NavBar />
 				</Box>
-				<MiddleSection />
+				<MiddleSection Services={Services} setServices={setServices} />
 				<RightSection />
 			</Box>
 		</Box>

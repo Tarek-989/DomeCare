@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-import { Service } from '../types';
-import { initServices } from '../data/services';
+import { Service, ServicesProps } from '../types';
 import HomeIcon from '@mui/icons-material/Home';
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import { Box, Breadcrumbs, Typography, Divider, IconButton, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
-export const MiddleSection: React.FC = () => {
+export const MiddleSection: React.FC<ServicesProps>  = ({ Services, setServices }) => {
 	const [havechildren, setHavechildren] = useState(false);
 	const [havechildren2, setHavechildren2] = useState(false);
-	const [Services, setServices] = useState(initServices);
 
 	const removeService = (services: Array<Service>, id: string): Array<Service> => {
 		return services.reduce((acc, service) => {

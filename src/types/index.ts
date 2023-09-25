@@ -19,3 +19,8 @@ export interface ServiceViewProps {
 export interface HeaderProps {
 	toggleDrawer: () => void;
 }
+
+export interface ServicesProps {
+	Services: Array<Service>;
+	setServices: React.Dispatch<React.SetStateAction<Array<Service>>>;
+}
