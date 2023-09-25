@@ -33,11 +33,24 @@ export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }
 		setServices(newServices);
 	};
 
+	const editServiceRecursive = (services: Array<Service>, updatedService: Service): Array<Service> => {
+		return services.map(service => {
+			if (service.id === updatedService.id) {
+				return updatedService;
+			}
+			if (service.children) {
+				return {
+					...service,
+					children: editServiceRecursive(service.children, updatedService)
+				};
+			}
+			return service;
+		});
+	};
 	const handleEditSubmit = (updatedService: Service) => {
-		const updatedServices = Services.map(service =>
-			service.id === updatedService.id ? updatedService : service
-		);
+		const updatedServices = editServiceRecursive(Services, updatedService);
 		setServices(updatedServices);
+		setServiceToEdit(null);
 		setOpenDialog(false);
 	};
 
