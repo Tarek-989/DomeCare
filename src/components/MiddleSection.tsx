@@ -67,13 +67,13 @@ export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }
 
 	return (
 		<Box display={'flex'} flexDirection={'column'} flex={3} height={'80%'} >
-			<Breadcrumbs separator={<KeyboardDoubleArrowRightIcon sx={{ fontSize: "12px" }} />} aria-label='breadcrumb' color="black">
-				<Typography variant='h2' fontSize={13} sx={{ display: "flex", alignItems: "center" }} color={'#3b86ff'}>
+			<Breadcrumbs separator={<KeyboardDoubleArrowRightIcon sx={{ fontSize: '12px' }} />} aria-label='breadcrumb' color='black'>
+				<Typography variant='h2' fontSize={13} sx={{ display: 'flex', alignItems: 'center' }} color={'#3b86ff'}>
 					<HomeIcon sx={{ mr: 1 }} fontSize={'small'} />
 					Home
 				</Typography>
-				<Typography variant='h2' color="black" fontSize={13}>Profile</Typography>
-				<Typography variant='h2' color="black" fontSize={13}>Services</Typography>
+				<Typography variant='h2' color='black' fontSize={13}>Profile</Typography>
+				<Typography variant='h2' color='black' fontSize={13}>Services</Typography>
 			</Breadcrumbs>
 			<Box display={'flex'} justifyContent={'center'} mt={2} alignItems={'center'} gap={2}>
 				<Box display={'flex'} justifyContent={'center'} alignItems={'center'} bgcolor={'#e7e9ef'} width={60} height={50} borderRadius={3}>
@@ -164,7 +164,7 @@ export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }
 						<KeyboardArrowRight sx={{ color: '#3b86ff' }} />
 					</Box>
 				</Box>
-				<Grid container spacing={2} justifyContent="center" mt={1}>
+				<Grid container spacing={2} justifyContent='center' mt={1}>
 					<Grid item xs={12} sm={6} md={3}>
 						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
 							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
@@ -195,26 +195,48 @@ export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }
 				<DialogContent>
 					<TextField
 						autoFocus
-						margin="dense"
-						id="name"
-						label="Service Name"
-						type="text"
+						margin='dense'
+						id='name'
+						label='Service Name'
+						type='text'
 						fullWidth
 						defaultValue={serviceToEdit?.name}
 						onChange={e => setServiceToEdit({ ...serviceToEdit!, name: e.target.value })}
 					/>
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={() => setOpenDialog(false)} color="primary">
+				<DialogActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row-reverse', gap: 2 }}>
+					<Button
+						onClick={() => setOpenDialog(false)}
+						color='primary'
+						variant='outlined'
+						sx={{
+							paddingY: 1,
+							paddingX: 2.5,
+							borderColor: '#69a2fd',
+							borderRadius: 10,
+							boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+							textTransform: 'none',
+						}}
+					>
 						Cancel
 					</Button>
 					<Button
+						variant='contained'
+						color='primary'
+						sx={{
+							paddingY: 1,
+							paddingX: 2.5,
+							backgroundColor: '#3b86ff',
+							borderRadius: 10,
+							boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+							textTransform: 'none',
+						}}
 						onClick={() => {
 							if (serviceToEdit) {
 								handleEditSubmit(serviceToEdit);
 							}
 						}}
-						color="primary">
+					>
 						Submit
 					</Button>
 				</DialogActions>
