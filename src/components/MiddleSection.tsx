@@ -166,24 +166,16 @@ export const MiddleSection: React.FC<ServicesProps> = ({ Services, setServices }
 				</Box>
 				<Grid container spacing={2} justifyContent='center' mt={1}>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
-						</Box>
+						<img src='/services assets/Group 6896.svg' alt='Product' style={{ width: '100%' }} />
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
-						</Box>
+						<img src='/services assets/Group 6896.svg' alt='Product' style={{ width: '100%' }} />
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
-						</Box>
+						<img src='/services assets/Group 6896.svg' alt='Product' style={{ width: '100%' }} />
 					</Grid>
 					<Grid item xs={12} sm={6} md={3}>
-						<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-							<img src='/services assets/Group 6896.svg' alt='Product' style={{ maxWidth: '100%' }} />
-						</Box>
+						<img src='/services assets/Group 6896.svg' alt='Product' style={{ width: '100%' }} />
 					</Grid>
 				</Grid>
 			</Box>
