@@ -7,7 +7,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleDrawer }) => {
 	return (
 		<Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} padding={'0 2rem'}>
 			<Hidden mdUp>
-				<IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={toggleDrawer}>
+				<IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }} onClick={toggleDrawer}>
 					<MenuIcon />
 				</IconButton>
 			</Hidden>

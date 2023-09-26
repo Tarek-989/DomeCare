@@ -14,7 +14,7 @@ export const Dashboard: React.FC<ServicesProps> = ({ Services, setServices }) =>
 		<Box bgcolor={'#f5f6fa'} width={'100%'} height={'100%'}>
 			<Header toggleDrawer={toggleDrawer} />
 			<Drawer
-				anchor="left"
+				anchor='left'
 				open={drawerOpen}
 				onClose={toggleDrawer}
 				sx={{ display: { xs: 'block', md: 'none' } }}
