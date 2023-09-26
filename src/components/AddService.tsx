@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
-import { Box, Breadcrumbs, Typography, Divider, IconButton, InputAdornment, TextField, Drawer, Checkbox } from '@mui/material';
+import { Box, Breadcrumbs, Typography, Divider, IconButton, InputAdornment, TextField, Drawer, Checkbox, Button } from '@mui/material';
 import { KeyboardDoubleArrowRight } from '@mui/icons-material';
 import HomeIcon from '@mui/icons-material/Home';
 import { Service, ServicesProps } from '../types';
@@ -68,7 +68,7 @@ export const AddService: React.FC<ServicesProps> = ({ Services, setServices }) =
 		<Box bgcolor={'#f5f6fa'} width={'100%'} height={'100%'}>
 			<Header toggleDrawer={toggleDrawer} />
 			<Drawer
-				anchor="left"
+				anchor='left'
 				open={drawerOpen}
 				onClose={toggleDrawer}
 				sx={{ display: { xs: 'block', md: 'none' } }}
@@ -80,14 +80,14 @@ export const AddService: React.FC<ServicesProps> = ({ Services, setServices }) =
 					<NavBar />
 				</Box>
 				<Box display={'flex'} flexDirection={'column'} flex={3} height={'80%'} >
-					<Breadcrumbs separator={<KeyboardDoubleArrowRight sx={{ fontSize: "12px" }} />} aria-label='breadcrumb' color="black">
-						<Typography variant='h2' fontSize={13} sx={{ display: "flex", alignItems: "center" }} color={'#3b86ff'}>
+					<Breadcrumbs separator={<KeyboardDoubleArrowRight sx={{ fontSize: '12px' }} />} aria-label='breadcrumb' color='black'>
+						<Typography variant='h2' fontSize={13} sx={{ display: 'flex', alignItems: 'center' }} color={'#3b86ff'}>
 							<HomeIcon sx={{ mr: 1 }} fontSize={'small'} />
 							Home
 						</Typography>
-						<Typography variant='h2' color="black" fontSize={13}>Profile</Typography>
-						<Typography variant='h2' color="black" fontSize={13}>Services</Typography>
-						<Typography variant='h2' color="black" fontSize={13}>Add Services</Typography>
+						<Typography variant='h2' color='black' fontSize={13}>Profile</Typography>
+						<Typography variant='h2' color='black' fontSize={13}>Services</Typography>
+						<Typography variant='h2' color='black' fontSize={13}>Add Services</Typography>
 					</Breadcrumbs>
 
 					<Box mt={2} borderRadius={3} bgcolor={'#fff'} padding={3}>
@@ -95,7 +95,7 @@ export const AddService: React.FC<ServicesProps> = ({ Services, setServices }) =
 							Services
 							<Divider component='div' sx={{ width: 50, bgcolor: '#3b86ff', height: 3, borderRadius: 3 }} />
 						</Typography>
-						<Box display={'flex'} justifyContent={'space-between'} mt={2}>
+						<Box display={'flex'} flexDirection={{ xs: 'column', sm: 'row' }} justifyContent={'space-between'} mt={2}>
 							<Box>
 								<TextField
 									variant='outlined'
@@ -123,24 +123,29 @@ export const AddService: React.FC<ServicesProps> = ({ Services, setServices }) =
 									}}
 								/>
 							</Box>
-							<Box display={'flex'} alignItems={'center'} gap={1}>
+							<Box display={'flex'} justifyContent={{ xs: 'end' }} alignItems={'center'} gap={1}>
 								<IconButton onClick={handleBackButtonClick}>
 									<img src='/services assets/Group 8959.svg' alt='return' />
 								</IconButton>
-								<Box
-									display={'flex'}
-									justifyContent={'center'}
-									alignItems={'center'}
-									bgcolor={'#3b86ff'}
-									paddingRight={2}
-									paddingLeft={1}
-									sx={{ borderTopLeftRadius: 40, borderBottomLeftRadius: 40, width: 100, height: 50 }}
+								<Button
+									variant='contained'
+									color='primary'
+									disabled={!newServiceName}
+									sx={{
+										width: 100, height: 50,
+										borderTopLeftRadius: 40,
+										borderBottomLeftRadius: 40,
+										paddingY: 1,
+										paddingX: 2.5,
+										fontSize: 20,
+										backgroundColor: '#3b86ff',
+										boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+										textTransform: 'none',
+									}}
 									onClick={handleAddService}
 								>
-									<Typography variant='h5' color={'#fff'}>
-										Link
-									</Typography>
-								</Box>
+									Link
+								</Button>
 							</Box>
 						</Box>
 						{Services.map((Service) => (
